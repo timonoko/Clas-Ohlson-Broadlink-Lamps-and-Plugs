@@ -1,5 +1,8 @@
 #! /usr/bin/python3
 
+# Random brightness and colortemp changes on Clas Ohlson Lamp.
+# Not very candle-like yet.
+
 import broadlink,time,math,random
 
 d=broadlink.discover()
