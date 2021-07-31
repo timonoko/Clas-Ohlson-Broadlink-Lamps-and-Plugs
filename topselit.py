@@ -1,7 +1,7 @@
 
 #coding=iso-8859-1
 
-# Jaahdytin-nimisen topselin webpy-serveri locahost:8083
+# "Jaahdytin|7"-named plug ON/OFF webpy-server at localhost:8083
 
 import os
 import math
