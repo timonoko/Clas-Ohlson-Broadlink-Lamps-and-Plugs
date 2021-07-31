@@ -1,5 +1,4 @@
-
-#coding=iso-8859-1
+#! /usr/bin/python3
 
 # "Jaahdytin|7"-named plug ON/OFF webpy-server at localhost:8083
 
