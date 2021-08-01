@@ -6,7 +6,7 @@ import os
 import math
 import time
 import urllib
-import web,os
+import web
 import broadlink
 
 web.config.debug=False
