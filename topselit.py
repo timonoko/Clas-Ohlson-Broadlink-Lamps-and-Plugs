@@ -30,6 +30,15 @@ plug3.auth()
 class datoja:
     urls=()
 
+def check(d,x,y):
+    if d.check_power():
+        p="VALO.png"
+    else:
+        p="TYHJA.png"
+    return('<div style="position: absolute; left:'+str(x)+'; top:'+str(y)+'">'+
+    "<img src=static/"+p+">"+
+    '</div>\n')
+
 def otsikko(kuvio,x,y):
     return('<div style="position: absolute; left:'+str(x)+'; top:'+str(y)+'">'+
     '<h1>'+ kuvio + '</h1>'+
@@ -46,13 +55,16 @@ def palauta_paska(refresh=False):
        '</head>\n'+\
     otsikko(' J&Auml;&Auml;HDYTIN',100,30)+\
     nappi("ON1","static/ON.png",100,100)+\
-    nappi("OFF1","static/OFF.png",200,100)+\
+    check(plug1,180,100)+\
+    nappi("OFF1","static/OFF.png",260,100)+\
     otsikko('TUULETIN',100,230)+\
     nappi("ON2","static/ON.png",100,300)+\
-    nappi("OFF2","static/OFF.png",200,300)+\
+    check(plug2,180,300)+\
+    nappi("OFF2","static/OFF.png",260,300)+\
     otsikko('PI',100,430)+\
     nappi("ON3","static/ON.png",100,500)+\
-    nappi("OFF3","static/OFF.png",200,500)
+    check(plug3,180,500)+\
+    nappi("OFF3","static/OFF.png",260,500)
     return(s)
 
 datoja.urls=('/','index')
