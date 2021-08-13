@@ -8,12 +8,14 @@ import urllib
 import web
 import broadlink
 
+
 os.chdir('/home/tnoko/Clas_Olhson/')
 
 web.config.debug=False
 
 d=broadlink.discover(local_ip_address="192.168.1.11")
 
+plug1=0;plug2=0;plug3=0
 for x in range(len(d)):
     print(d[x].name)
     if d[x].name == "Jaahdytin|7":
@@ -23,21 +25,21 @@ for x in range(len(d)):
     if d[x].name == "pis|4":
         plug3=d[x]
 
-plug1.auth()
-plug2.auth()
-plug3.auth()
-
 class datoja:
     urls=()
 
+
 def check(d,x,y):
-    if d.check_power():
-        p="VALO.png"
-    else:
-        p="TYHJA.png"
-    return('<div style="position: absolute; left:'+str(x)+'; top:'+str(y)+'">'+
-    "<img src=static/"+p+">"+
-    '</div>\n')
+    try:
+        if d.check_power():
+            p="VALO.png"
+        else:
+            p="TYHJA.png"
+        return('<div style="position: absolute; left:'+str(x)+'; top:'+str(y)+'">'+
+        "<img src=static/"+p+">"+
+        '</div>\n')
+    except:
+        return " "
 
 def otsikko(kuvio,x,y):
     return('<div style="position: absolute; left:'+str(x)+'; top:'+str(y)+'">'+
@@ -72,41 +74,50 @@ class index:
     def GET(self):
         return palauta_paska()
 
-datoja.urls+=('/ON1','ON1')
-class ON1:
-    def GET(self):
-        plug1.set_power(True)
-        return palauta_paska()
+try:
+    plug1.auth()
+    datoja.urls+=('/ON1','ON1')
+    class ON1:
+        def GET(self):
+            plug1.set_power(True)
+            return palauta_paska()
+    datoja.urls+=('/OFF1','OFF1')
+    class OFF1:
+        def GET(self):
+            plug1.set_power(False)
+            return palauta_paska()
+except:
+    pass
 
-datoja.urls+=('/OFF1','OFF1')
-class OFF1:
-    def GET(self):
-        plug1.set_power(False)
-        return palauta_paska()
+try:
+    plug2.auth()
+    datoja.urls+=('/ON2','ON2')
+    class ON2:
+        def GET(self):
+            plug2.set_power(True)
+            return palauta_paska()
+    datoja.urls+=('/OFF2','OFF2')
+    class OFF2:
+        def GET(self):
+            plug2.set_power(False)
+            return palauta_paska()
+except:
+    pass
 
-datoja.urls+=('/ON2','ON2')
-class ON2:
-    def GET(self):
-        plug2.set_power(True)
-        return palauta_paska()
-
-datoja.urls+=('/OFF2','OFF2')
-class OFF2:
-    def GET(self):
-        plug2.set_power(False)
-        return palauta_paska()
-
-datoja.urls+=('/ON3','ON3')
-class ON3:
-    def GET(self):
-        plug3.set_power(True)
-        return palauta_paska()
-
-datoja.urls+=('/OFF3','OFF3')
-class OFF3:
-    def GET(self):
-        plug3.set_power(False)
-        return palauta_paska()
+try:
+    plug3.auth()
+    datoja.urls+=('/ON3','ON3')
+    class ON3:
+        def GET(self):
+            plug3.set_power(True)
+            return palauta_paska()
+    datoja.urls+=('/OFF3','OFF3')
+    class OFF3:
+        def GET(self):
+            plug3.set_power(False)
+            return palauta_paska()
+except:
+    pass
 
 os.environ["PORT"] = "8083"
 if __name__ == "__main__":
