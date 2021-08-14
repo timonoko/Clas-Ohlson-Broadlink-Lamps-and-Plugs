@@ -1,5 +1,6 @@
-# Painele pitkään kunnes morserttaa "S S S"
-# kytkeydy Wifilla Clas Ohlson serveriin
+# Vitun appi ei huoli uusia vehkeitä? Ei hätää.
+# Painele pitkiä kunnes morsettaa "S S S"
+# kytkeydy Wifilla "Clas Ohlson" nimiseen serveriin
 
 import broadlink
->>> broadlink.setup("Jorpakko","Juhannusyona",4)
+broadlink.setup("KOTI-WIFI","SALASANA",4) 
