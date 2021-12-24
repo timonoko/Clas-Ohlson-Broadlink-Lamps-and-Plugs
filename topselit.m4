@@ -1,7 +1,6 @@
 #! /usr/bin/python3
-"""
- Ikäviä m4-makroja: undefine(`len') undefine(`eval')
-"""
+""" Ikäviä m4-makroja: undefine(`len') undefine(`eval') """
+
 import os, math, time, urllib, web, broadlink
 
 os.chdir('/home/tnoko/Clas_Olhson/')
