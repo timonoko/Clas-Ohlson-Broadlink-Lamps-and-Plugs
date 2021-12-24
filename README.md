@@ -3,4 +3,4 @@
 I almost started to solder in ESP8266, because bloody Android app did not work.
 Then discovered github.com/mjg59/python-broadlink/ 
 
-m4 is easier creepy python macros.
+m4 is easier than creepy python macros.
