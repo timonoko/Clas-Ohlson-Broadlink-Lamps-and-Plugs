@@ -32,7 +32,7 @@ def valo(d,x,y):
         return ""
 
 def otsikko(kuvio,x,y):
-    return f'<div style="position: absolute; left:{x}; top:{y}"\
+    return f'<div style="position: absolute; left:{x}; top:{y}">\
              <h1>{kuvio}</h1></div>\n'
 
 def nappi(osoite,kuvio,x,y):
