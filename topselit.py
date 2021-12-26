@@ -26,21 +26,18 @@ def valo(d,x,y):
             p="VALO.png"
         else:
             p="TYHJA.png"
-        return('<div style="position: absolute; left:'+str(x)+'; top:'+str(y)+'">'+
-        "<img src=static/"+p+">"+
-        '</div>\n')
+        return f'<div style="position: absolute; left:{x}; top:{y}">\
+                 <img src=static/{p}></div>\n'
     except:
-        return "VITTUA"
+        return ""
 
 def otsikko(kuvio,x,y):
-    return('<div style="position: absolute; left:'+str(x)+'; top:'+str(y)+'">'+
-    '<h1>'+ kuvio + '</h1>'+
-    '</div>\n')
+    return f'<div style="position: absolute; left:{x}; top:{y}"\
+             <h1>{kuvio}</h1></div>\n'
 
 def nappi(osoite,kuvio,x,y):
-    return('<div style="position: absolute; left:'+str(x)+'; top:'+str(y)+'">'+
-     "<a href="+osoite+"><img src="+kuvio+"></a>"+
-    '</div>\n')
+    return f'<div style="position: absolute; left:{x}; top:{y}">\
+            <a href={osoite}><img src={kuvio}</a></div>\n'
 
 def yksirivi(o,n,y):
     n2=str(n)
@@ -56,8 +53,7 @@ def palauta_html(refresh=False):
     yksirivi('PI',3,500)
     return s
 
-def webbinappi(s):
-    s1=str(s)
+def webbinappi(s1):
     return f"""
 try:
     plug[{s1}].auth()
