@@ -37,15 +37,15 @@ def otsikko(kuvio,x,y):
 
 def nappi(osoite,kuvio,x,y):
     return f'<div style="position: absolute; left:{x}; top:{y}">\
-            <a href={osoite}><img src={kuvio}</a></div>\n'
+            <a href={osoite}><img src={kuvio}><a></div>\n'
 
 def yksirivi(o,n,y):
-    n2=str(n)
-    return otsikko(o,100,y-70)+\
-    nappi(f"ON{n2}","static/ON.png",100,y)+\
+    s=otsikko(o,100,y-70)+\
+    nappi(f"ON{n}","static/ON.png",100,y)+\
     valo(plug[n],180,y)+\
-    nappi(f"OFF{n2}","static/OFF.png",260,y)
-    
+    nappi(f"OFF{n}","static/OFF.png",260,y)
+    return s
+
 def palauta_html(refresh=False):
     s='<html><head> <title>TOPSELIT</title>\n </head> \n'+\
     yksirivi('L&Auml;MMITIN',1,100)+\
